@@ -458,11 +458,6 @@ public class MapPresenter implements BasePresenter, MapwizeMap.OnVenueEnterListe
                 public void onSuccess(@NonNull final List<MapwizeObject> mapwizeObjects) {
                     // Display the result
                     new Handler(Looper.getMainLooper()).post(() -> {
-                        Log.d("test", "mapwizeObjects size: "+ mapwizeObjects.size());
-
-                        for (MapwizeObject o : mapwizeObjects) {
-                            Log.d("test", "mapwizeObject: "+ o.getName());
-                        }
                         fragment.showSearchResults(mapwizeObjects, universes, universe);
                         fragment.hideSearchLoading();
                     });
