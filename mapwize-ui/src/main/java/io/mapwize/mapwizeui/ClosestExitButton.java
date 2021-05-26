@@ -34,6 +34,7 @@ public class ClosestExitButton extends AppCompatImageButton {
     private void initialize(Context context) {
         setBackgroundResource(R.drawable.mapwize_circle_view);
         setImageResource(closestExitImageResource);
+
         setColorFilter(Color.BLACK);
         setOnClickListener(view -> {
             listener.onClosestSortieClick();

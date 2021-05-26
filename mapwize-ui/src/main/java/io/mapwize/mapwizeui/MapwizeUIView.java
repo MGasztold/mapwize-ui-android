@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -86,7 +87,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
     private SearchResultList searchResultList;
     private SearchDirectionView searchDirectionView;
     private FollowUserButton followUserButton;
-    private ClosestExitButton closestExitButton;
+    private Button closestExitButton;
     private CompassView compassView;
     private ConstraintLayout mainLayout;
     private FrameLayout headerLayout;
@@ -157,7 +158,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         searchDirectionView = cv.findViewById(R.id.mapwizeDirectionSearchBar);
         searchDirectionView.setListener(this);
         closestExitButton = cv.findViewById(R.id.mapwizeClosestExitButton);
-        closestExitButton.setListener(this);
+        closestExitButton.setOnClickListener(v -> onClosestSortieClick());
         closestExitButton.setVisibility(initializeUiSettings.isClosestExitButtonHidden() ? View.GONE : View.VISIBLE);
         followUserButton = cv.findViewById(R.id.mapwizeFollowUserButton);
         followUserButton.setListener(this);
