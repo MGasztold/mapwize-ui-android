@@ -57,6 +57,7 @@ public class PlaceDetailsUI extends ConstraintLayout implements SheetFull.Scroll
     private boolean dontExpand = false;
     private CardView cardView;
     private View dragBar;
+    private boolean shareButtonVisible = true;
 
     public PlaceDetailsUI(@NonNull Context context) {
         super(context);
@@ -394,6 +395,10 @@ public class PlaceDetailsUI extends ConstraintLayout implements SheetFull.Scroll
         sheetContent.setSubTitleVisibility(visible);
     }
 
+    public void setShareButtonVisibility(boolean visible) {
+        shareButtonVisible = visible;
+    }
+
     public void setStateListener(DetailsStateListener detailsStateListener) {
         this.detailsStateListener = detailsStateListener;
     }
@@ -572,7 +577,7 @@ public class PlaceDetailsUI extends ConstraintLayout implements SheetFull.Scroll
             buttonsBig.add(websiteButtonBig);
 
         }
-        if (!sharingLink.equals("")) {
+        if (!sharingLink.equals("") && shareButtonVisible) {
             OnClickListener shareButtonClickListener = view -> {
                 Intent sendIntent = new Intent(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, sharingLink);

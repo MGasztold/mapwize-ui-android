@@ -335,6 +335,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         if (preview.getSubtitle() != null && !preview.getSubtitle().equals("")) {
             placeDetailsUI.setSubTitleVisibility(true);
         }
+        placeDetailsUI.setShareButtonVisibility(initializeUiSettings.isPoiShareButtonHidden());
     }
 
     @Override

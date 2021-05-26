@@ -90,6 +90,10 @@ public class SheetContent extends ConstraintLayout {
         placeSubTitle.setVisibility(visible ? VISIBLE : GONE);
     }
 
+    public void setShareButtonVisibility(boolean visible) {
+
+    }
+
     public List<ButtonSmall> getSmallButtons() {
         return smallButtonContainer.getSmallButtons();
     }
