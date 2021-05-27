@@ -87,6 +87,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
     private SearchDirectionView searchDirectionView;
     private FollowUserButton followUserButton;
     private Button closestExitButton;
+    private Button filtersButton;
     private CompassView compassView;
     private ConstraintLayout mainLayout;
     private FrameLayout headerLayout;
@@ -159,6 +160,9 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         closestExitButton = cv.findViewById(R.id.mapwizeClosestExitButton);
         closestExitButton.setOnClickListener(v -> listener.onClosestExitButtonClick() );
         closestExitButton.setVisibility(initializeUiSettings.isClosestExitButtonHidden() ? View.GONE : View.VISIBLE);
+        filtersButton = cv.findViewById(R.id.mapwizeFiltersButton);
+        filtersButton.setOnClickListener(v -> listener.onFiltersButtonClick() );
+        filtersButton.setVisibility(initializeUiSettings.isFiltersButtonHidden() ? View.GONE : View.VISIBLE);
         followUserButton = cv.findViewById(R.id.mapwizeFollowUserButton);
         followUserButton.setListener(this);
         followUserButton.setVisibility(initializeUiSettings.isFollowUserButtonHidden() ? View.GONE : View.VISIBLE);
@@ -1145,6 +1149,10 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         }
 
         default void onClosestExitButtonClick() {
+
+        }
+
+        default void onFiltersButtonClick() {
 
         }
 

@@ -41,4 +41,5 @@
     <string name="mapwize_details_occupied">Occupé</string>
     <string name="mapwize_details_not_occupied">Libre</string>
     <string name="exit">Sortie</string>
+    <string name="filters">Filtres</string>
 </resources>
