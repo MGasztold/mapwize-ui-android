@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -58,7 +59,7 @@ import io.mapwize.mapwizeui.report.Report;
 public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarView.SearchBarListener,
         SearchResultList.SearchResultListListener, FloorControllerView.OnFloorClickListener,
         BottomCardView.BottomCardListener, SearchDirectionView.SearchDirectionListener,
-        FollowUserButton.FollowUserButtonListener, CompassView.OnCompassClickListener, MapwizeMapLocationAndDirectionInterface {
+        FollowUserButton.FollowUserButtonListener, CompassView.OnCompassClickListener, ClosestExitButton.ClosestExitButtonListener, MapwizeMapLocationAndDirectionInterface {
 
     // Options
     private static String ARG_OPTIONS = "param_options";
@@ -158,7 +159,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         searchDirectionView = cv.findViewById(R.id.mapwizeDirectionSearchBar);
         searchDirectionView.setListener(this);
         closestExitButton = cv.findViewById(R.id.mapwizeClosestExitButton);
-        closestExitButton.setOnClickListener(v -> listener.onClosestExitButtonClick() );
+        closestExitButton.setOnClickListener(v -> onClosestSortieClick());
         closestExitButton.setVisibility(initializeUiSettings.isClosestExitButtonHidden() ? View.GONE : View.VISIBLE);
         filtersButton = cv.findViewById(R.id.mapwizeFiltersButton);
         filtersButton.setOnClickListener(v -> listener.onFiltersButtonClick() );
@@ -1108,6 +1109,11 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
 
     public OnBackPressedCallback getOnBackPressedCallback() {
         return onBackPressedCallback;
+    }
+
+    @Override
+    public void onClosestSortieClick() {
+        listener.onClosestExitButtonClick();
     }
 
     public interface OnViewInteractionListener {
