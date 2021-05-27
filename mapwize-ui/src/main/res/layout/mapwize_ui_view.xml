@@ -82,11 +82,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-    <Button
+    <io.mapwize.mapwizeui.RoundButton
         android:id="@+id/mapwizeFiltersButton"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:background="@drawable/mapwize_circle_view"
         android:text="@string/filters"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="16dp"
@@ -94,22 +93,21 @@
         android:layout_marginStart="8dp"
         android:padding="12dp"
         android:elevation="6dp"
-        android:textSize="7sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toTopOf="@+id/mapwizeClosestExitButton"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <io.mapwize.mapwizeui.RoundButton
         android:id="@+id/mapwizeClosestExitButton"
         android:layout_width="70dp"
         android:layout_height="50dp"
-        android:background="@drawable/mapwize_circle_view"
         android:text="@string/exit"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
         android:padding="12dp"
-        android:textSize="7sp"
+        android:textSize="10sp"
         android:elevation="6dp"
         app:layout_constraintBottom_toTopOf="@+id/mapwizeBottomCardView"
         app:layout_constraintStart_toStartOf="parent" />

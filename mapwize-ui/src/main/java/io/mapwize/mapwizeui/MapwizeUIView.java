@@ -9,10 +9,8 @@ import android.os.Looper;
 import android.telephony.PhoneNumberUtils;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
@@ -59,7 +57,7 @@ import io.mapwize.mapwizeui.report.Report;
 public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarView.SearchBarListener,
         SearchResultList.SearchResultListListener, FloorControllerView.OnFloorClickListener,
         BottomCardView.BottomCardListener, SearchDirectionView.SearchDirectionListener,
-        FollowUserButton.FollowUserButtonListener, CompassView.OnCompassClickListener, ClosestExitButton.ClosestExitButtonListener, MapwizeMapLocationAndDirectionInterface {
+        FollowUserButton.FollowUserButtonListener, CompassView.OnCompassClickListener, MapwizeMapLocationAndDirectionInterface {
 
     // Options
     private static String ARG_OPTIONS = "param_options";
@@ -87,8 +85,8 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
     private SearchResultList searchResultList;
     private SearchDirectionView searchDirectionView;
     private FollowUserButton followUserButton;
-    private Button closestExitButton;
-    private Button filtersButton;
+    private RoundButton closestExitButton;
+    private RoundButton filtersButton;
     private CompassView compassView;
     private ConstraintLayout mainLayout;
     private FrameLayout headerLayout;
@@ -159,7 +157,7 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
         searchDirectionView = cv.findViewById(R.id.mapwizeDirectionSearchBar);
         searchDirectionView.setListener(this);
         closestExitButton = cv.findViewById(R.id.mapwizeClosestExitButton);
-        closestExitButton.setOnClickListener(v -> onClosestSortieClick());
+        closestExitButton.setOnClickListener(v -> listener.onClosestExitButtonClick());
         closestExitButton.setVisibility(initializeUiSettings.isClosestExitButtonHidden() ? View.GONE : View.VISIBLE);
         filtersButton = cv.findViewById(R.id.mapwizeFiltersButton);
         filtersButton.setOnClickListener(v -> listener.onFiltersButtonClick() );
@@ -1109,11 +1107,6 @@ public class MapwizeUIView extends FrameLayout implements BaseUIView, SearchBarV
 
     public OnBackPressedCallback getOnBackPressedCallback() {
         return onBackPressedCallback;
-    }
-
-    @Override
-    public void onClosestSortieClick() {
-        listener.onClosestExitButtonClick();
     }
 
     public interface OnViewInteractionListener {
